@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Gen AI Suite</title>
+  <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+  <header class="navbar">
+    <h1 class="brand">🧠 Gen AI Suite</h1>
+    <nav>
+      <a href="/">Home</a>
+      <a href="/chatbot">Chatbot</a>
+      <a href="/pdf-qa">PDF Q&A</a>
+      <a href="/codegen">Code Generator</a>
+      <a href="/imagegen">Image Generator</a>
+    </nav>
+  </header>
+
+  <main class="content">
+    {% block content %}{% endblock %}
+  </main>
+</body>
+</html>
