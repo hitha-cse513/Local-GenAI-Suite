@@ -1,0 +1,30 @@
+# Core web framework
+Flask==3.0.3
+requests==2.32.3
+
+# LangChain ecosystem
+langchain==0.2.16
+langchain-community==0.2.16
+langchain-ollama==0.1.0
+
+# Vector store
+faiss-cpu==1.8.0
+
+# PDF loader
+pypdf==4.2.0
+
+# Machine learning / model interfaces
+torch>=2.2.0
+transformers>=4.41.0
+diffusers>=0.30.0
+accelerate>=0.33.0
+safetensors>=0.4.2
+
+# Image processing
+Pillow>=10.2.0
+
+# For JSON and temporary file handling
+python-dotenv>=1.0.1
+
+# Optional (useful utilities)
+tqdm>=4.66.1
