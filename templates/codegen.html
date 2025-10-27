@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2 style="color:hsl(216, 56%, 98%);">💻 Python Code Generator</h2>
+<textarea id="prompt" rows="3" placeholder="Describe the function or code you need..."></textarea>
+<button class="primary" onclick="genCode()">🚀 Generate</button>
+<pre id="code"></pre>
+
+<script>
+async function genCode(){
+  const prompt = document.getElementById('prompt').value;
+  const res = await fetch('/api/generate_code', {
+    method:'POST', headers:{'Content-Type':'application/json'},
+    body: JSON.stringify({prompt})
+  });
+  const data = await res.json();
+  code.textContent = data.code;
+}
+</script>
+{% endblock %}

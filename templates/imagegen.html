@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2 style="color:hsl(216, 56%, 98%);">🖼️ Image Generator</h2>
+<input type="text" id="imgPrompt" placeholder="Describe the image you want to create...">
+<button class="primary" onclick="genImage()">🎨 Generate</button>
+<div id="result"></div>
+
+<script>
+async function genImage(){
+  const prompt = imgPrompt.value;
+  const res = await fetch('/api/generate_image', {
+    method:'POST', headers:{'Content-Type':'application/json'},
+    body: JSON.stringify({prompt})
+  });
+  const data = await res.json();
+  result.innerHTML = `<img src="file://${data.image_path}" width="512">`;
+}
+</script>
+{% endblock %}

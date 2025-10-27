@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2 style="color:hsl(216, 56%, 98%);">💬 LLaMA 2 Chatbot</h2>
+
+<div id="chat" class="chatbox"></div>
+
+<div class="input-area">
+  <textarea id="msg" placeholder="Type your message..."></textarea>
+  <button class="primary" id="sendBtn">▶</button>
+</div>
+
+<div class="controls">
+  <button class="stop" id="stopBtn">🛑 Stop</button>
+  <button class="secondary" id="retryBtn">🔁 Retry</button>
+  <button class="secondary" id="clearBtn">🧹 Clear</button>
+</div>
+
+<script>
+let isStreaming = false;
+
+async function sendChat() {
+  if (isStreaming) return;
+  const msg = document.getElementById('msg').value.trim();
+  if (!msg) return;
+  document.getElementById('msg').value = '';
+
+  const chat = document.getElementById('chat');
+  const userBubble = document.createElement('div');
+  userBubble.className = 'bubble user';
+  userBubble.textContent = msg;
+  chat.appendChild(userBubble);
+  chat.scrollTop = chat.scrollHeight;
+
+  isStreaming = true;
+  const res = await fetch('/api/chat', {
+    method: 'POST',
+    headers: {'Content-Type': 'application/json'},
+    body: JSON.stringify({message: msg})
+  });
+  const data = await res.json();
+
+  const botBubble = document.createElement('div');
+  botBubble.className = 'bubble bot';
+  botBubble.textContent = data.response;
+  chat.appendChild(botBubble);
+  chat.scrollTop = chat.scrollHeight;
+  isStreaming = false;
+}
+
+document.getElementById('sendBtn').onclick = sendChat;
+document.getElementById('clearBtn').onclick = ()=> document.getElementById('chat').innerHTML = '';
+document.getElementById('msg').addEventListener('keydown', e=>{
+  if(e.key==='Enter' && !e.shiftKey){ e.preventDefault(); sendChat(); }
+});
+</script>
+{% endblock %}

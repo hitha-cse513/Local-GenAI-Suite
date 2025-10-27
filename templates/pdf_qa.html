@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2 style="color:hsl(216, 56%, 98%);">📄 PDF Q&A Assistant</h2>
+<form id="pdfForm">
+  <input type="file" id="pdfFile" required>
+  <button class="primary" type="submit">📂 Load PDF</button>
+</form>
+<p id="status"></p>
+<hr>
+<input type="text" id="question" placeholder="Ask something about your loaded PDF...">
+<button class="primary" onclick="askPDF()">🔍 Ask</button>
+<p id="answer"></p>
+
+<script>
+pdfForm.onsubmit = async (e)=>{
+  e.preventDefault();
+  const file = document.getElementById('pdfFile').files[0];
+  const formData = new FormData();
+  formData.append('file', file);
+
+  const res = await fetch('/api/load_pdf', { method: 'POST', body: formData });
+  const data = await res.json();
+
+  document.getElementById('status').innerText = data.message;
+}
+
+async function askPDF(){
+  const question = document.getElementById('question').value;
+  const res = await fetch('/api/ask_pdf', {
+    method:'POST', headers:{'Content-Type':'application/json'},
+    body: JSON.stringify({question})
+  });
+  const data = await res.json();
+  document.getElementById('answer').innerText = data.answer;
+
+}
+</script>
+{% endblock %}

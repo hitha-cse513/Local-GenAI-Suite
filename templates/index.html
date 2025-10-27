@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1 class="welcome">Welcome to the Gen AI Suite</h1>
+<p class="subtitle">Your local, all-in-one AI workspace built for smart creativity and automation.</p>
+
+<div class="cards">
+  <div class="card">
+    <h2>💬 Chatbot</h2>
+    <p>Interact naturally with an intelligent conversational agent powered by LLaMA 2. 
+       It can assist you with explanations, ideas, and general reasoning in real-time.</p>
+    <a href="/chatbot" class="card-btn">Open Chatbot</a>
+  </div>
+
+  <div class="card">
+    <h2>📄 PDF Q&A Assistant</h2>
+    <p>Upload any PDF and ask questions directly about its content. The AI extracts relevant 
+       paragraphs and generates precise answers, perfect for research or document analysis.</p>
+    <a href="/pdf-qa" class="card-btn">Open PDF Q&A</a>
+  </div>
+
+  <div class="card">
+    <h2>💻 Code Generator</h2>
+    <p>Generate Python code from natural language descriptions instantly. Whether you need a function, 
+       snippet, or automation script—AI coding at your fingertips.</p>
+    <a href="/codegen" class="card-btn">Open Code Generator</a>
+  </div>
+
+  <div class="card">
+    <h2>🖼️ Image Generator</h2>
+    <p>Describe any visual concept, and AI creates stunning high-quality images for you within seconds 
+       using stable diffusion models.</p>
+    <a href="/imagegen" class="card-btn">Open Image Generator</a>
+  </div>
+</div>
+{% endblock %}
