@@ -1,0 +1,254 @@
+/* Balanced Blue Theme + White Work Areas */
+body {
+  background: linear-gradient(135deg, #1E3A8A, #e525eb, #3B82F6);
+  font-family: 'Inter', sans-serif;
+  color: #F0F9FF;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  background-attachment: fixed;
+}
+
+/* Navbar */
+.navbar {
+  background: linear-gradient(135deg, #1E3A8A, #3920a8, #3B82F6);
+  color: #FFFFFF;
+  padding: 32px 64px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255,255,255,0.25);
+  box-shadow: 0 2px 10px rgba(0,0,0,0.25);
+}
+
+.navbar .brand {
+  margin: 0;
+  font-size: 40px;
+  font-weight: 900;
+  letter-spacing: 0.5px;
+}
+
+nav {
+  display: flex;
+  gap: 20px;
+  margin-top: 10px;
+}
+
+nav a {
+  color: #E0E7FF;
+  text-decoration: none;
+  font-weight: 500;
+  padding: 6px 10px;
+  border-radius: 8px;
+  transition: 0.3s;
+}
+
+nav a:hover {
+  background: rgba(255,255,255,0.15);
+  color: white;
+}
+
+/* Main content container */
+.content {
+  padding: 40px;
+  max-width: 900px;
+  margin: 40px auto;
+  background: rgba(255,255,255,0.1);
+  border-radius: 18px;
+  backdrop-filter: blur(18px);
+  border: 1px solid rgba(255,255,255,0.25);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.35);
+}
+
+/* Homepage Headers */
+.welcome {
+  text-align: center;
+  font-size: 2em;
+  color: #FFFFFF;
+  margin-bottom: 10px;
+}
+
+.subtitle {
+  text-align: center;
+  color: #C7D2FE;
+  margin-bottom: 36px;
+}
+
+/* Feature Cards */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 24px;
+}
+
+.card {
+  background: rgba(255,255,255,0.12);
+  border-radius: 24px;
+  padding: 30px;
+  border: 1px solid rgba(255,255,255,0.25);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.card:hover {
+  transform: translateY(-5px);
+  background: rgba(59,130,246,0.18);
+  box-shadow: 0 8px 24px rgba(37,99,235,0.4);
+}
+
+.card h2 {
+  color: #93C5FD;
+  margin-bottom: 6px;
+}
+
+.card p {
+  color: #E0E7FF;
+  flex-grow: 1;
+}
+
+.card-btn {
+  text-align: center;
+  background: linear-gradient(135deg, #2563EB, #1E3A8A);
+  color: white;
+  border-radius: 8px;
+  padding: 8px 0;
+  text-decoration: none;
+  margin-top: 12px;
+  font-weight: 600;
+  transition: all 0.3s;
+}
+.card-btn:hover {
+  background: linear-gradient(135deg, #3B82F6, #2563EB);
+  box-shadow: 0 0 10px rgba(59,130,246,0.6);
+}
+
+/* Inputs and text areas (white work zones) */
+textarea, input[type="text"], input[type="file"] {
+  width: 100%;
+  padding: 12px;
+  border-radius: 10px;
+  border: 1px solid #CBD5E1;
+  font-size: 16px;
+  background: #FFFFFF;
+  color: #1E3A8A;
+  transition: all 0.3s;
+}
+
+textarea:focus, input:focus {
+  border-color: #2563EB;
+  box-shadow: 0 0 10px rgba(37,99,235,0.3);
+  outline: none;
+}
+
+textarea::placeholder, input::placeholder {
+  color: #94A3B8;
+}
+
+/* Buttons */
+button {
+  padding: 10px 18px;
+  border: none;
+  border-radius: 10px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.25s ease-in-out;
+  font-size: 15px;
+}
+
+button.primary {
+  background: linear-gradient(135deg, #2563EB, #1E3A8A);
+  color: white;
+  box-shadow: 0 2px 10px rgba(37,99,235,0.4);
+}
+button.primary:hover {
+  background: #1E40AF;
+}
+
+button.stop {
+  background: linear-gradient(135deg, #DC2626, #B91C1C);
+  color: white;
+}
+
+button.secondary {
+  background: rgba(255,255,255,0.1);
+  color: #E0E7FF;
+  border: 1px solid rgba(255,255,255,0.25);
+}
+button.secondary:hover {
+  background: rgba(255,255,255,0.25);
+}
+
+/* Chatbox (white section area) */
+.chatbox {
+  height: 420px;
+  overflow-y: auto;
+  border-radius: 14px;
+  padding: 18px;
+  background: #FFFFFF;
+  border: 1px solid #DBEAFE;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* Chat Bubbles */
+.bubble {
+  max-width: 75%;
+  padding: 12px 16px;
+  border-radius: 16px;
+  line-height: 1.4;
+  font-size: 15px;
+  word-wrap: break-word;
+}
+
+.bubble.user {
+  align-self: flex-end;
+  background: linear-gradient(135deg, #3B82F6, #1E40AF);
+  color: white;
+}
+
+.bubble.bot {
+  align-self: flex-start;
+  background: linear-gradient(135deg, #c2249a, #b60982);
+  color: white;
+}
+
+/* Input area below chat */
+.input-area {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  margin-top: 15px;
+}
+.input-area textarea {
+  flex: 1;
+  height: 50px;
+  resize: none;
+}
+
+.controls {
+  margin-top: 14px;
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}
+
+/* Code output and image sections (white too) */
+pre {
+  background: #FFFFFF;
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #DBEAFE;
+  color: #1E3A8A;
+  overflow-x: auto;
+}
+
+img {
+  border-radius: 10px;
+  border: 2px solid #DBEAFE;
+  margin-top: 10px;
+  box-shadow: 0 0 10px rgba(59,130,246,0.25);
+}
